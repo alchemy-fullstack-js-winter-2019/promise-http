@@ -1,4 +1,4 @@
-// const http = require('http');
+const http = require('http');
 // const { parse } = require('url');
 
 // http.createServer((req, res)  => {
@@ -27,10 +27,8 @@
 
 // })
 
-const app = require('./app.js');
+const app = require('./lib/app.js');
 
-app.listen(3000, () => {
-    console.log('Sever listening on Port 3000');
-});
+http.createServer(app).listen(4000);
 
 

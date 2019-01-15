@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint .",
-    "pretest": "npm run lint", 
+    "pretest": "npm run lint",
     "start": "nodemon server.js"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "dependencies": {
     "agent": "^0.2.1",
     "super": "^0.2.3",
-    "superagent": "^4.1.0"
+    "superagent": "^4.1.0",
+    "supertest": "^3.3.0"
   }
 }
