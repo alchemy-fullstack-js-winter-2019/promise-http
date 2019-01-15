@@ -1,6 +1,7 @@
-function copy(src, dst) {
-  return fsPromises.readFile('./http.md', { encoding: 'utf8' })
-    .then(data => fsPromises.writeFile('./http-copy.md', data))
-    .then(() => console.log('DONE'))
+const fsPromise = require('fs').promises;
+
+module.exports = (src, dst) => {
+  return fsPromise.readFile(src)
+    .then(data => fsPromise.writeFile(dst, data))
     .catch(err => console.error(err));
-}
+};
