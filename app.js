@@ -15,6 +15,12 @@ const server = http.createServer((req, res)  => {
         res.setHeader('Content-Type', 'text/html');
         res.end(tomorrow);
     }
+    else if(url.pathname === '/testing') {
+        var content = '{ testing: "testing123" }';
+        var body = `<html><body> ${content} </body></html>`;
+        res.setHeader('Content-Type', 'text/html');
+        res.end(body);
+    }
     
     else {
         console.log('request incoming');

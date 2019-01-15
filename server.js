@@ -27,9 +27,9 @@
 
 // })
 
-const server = require('./app.js');
+const app = require('./app.js');
 
-server.listen(3000, () => {
+app.listen(3000, () => {
     console.log('Sever listening on Port 3000');
 });
 
