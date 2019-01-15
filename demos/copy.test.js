@@ -13,7 +13,7 @@ describe('copy', () => {
       })
       .then((httpMd, httpCopyMd) => {
         expect(httpMd).toEqual(httpCopyMd);
-      })
+      });
   });
 
   it('copies a file with Promise.all', () => {
