@@ -18,7 +18,6 @@ const trim = str => str.trim();
 
 const transformer = src => {
   return read(src)
-  
     .then(removeCapitals)
     .then(makeAllLettersCapital)
     .then(reverse)
