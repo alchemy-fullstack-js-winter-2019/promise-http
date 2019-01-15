@@ -14,9 +14,13 @@ fsPromises.writeFile('test.txt', 'testing 123')
   .then(() => console.log('Done'))
   .catch(err => console.error(err));
 
-fsPromises.readFile('./http.md', { encoding: 'utf8' })
-  .then(data => {
-    fsPromises.writeFile('http-copy.md', data)
+function copyFile(src, dst) {
+  fsPromises.readFile(src, { encoding: 'utf8' })
+    .then(data => fsPromises.writeFile(dst, data)
       .then(() => console.log('Done'))
-      .catch(err => console.error(err));
-  });
+      .catch(err => console.error(err))
+    );  
+}
+
+module.exports = copyFile;
+
