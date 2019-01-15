@@ -1,5 +1,5 @@
 /*eslint-disable no-console*/
-const copyFile  = require('./copy');
+const copyFile  = require('../lib/copy');
 const fsPromise = require('fs').promises;
 
 describe('copy', () => {

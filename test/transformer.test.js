@@ -4,7 +4,7 @@ const {
   makeAllLettersCapital,
   reverse,
   trim
-} = require('./transformer');
+} = require('../lib/transformer');
 
 describe('transformer', () => {
 
@@ -14,17 +14,17 @@ describe('transformer', () => {
   });
 
   it('makes a string into all capitals', () => {
-    const value = makeAllLettersCapital(' i here');
-    expect(value).toEqual(' I HERE');
+    const value = makeAllLettersCapital('i here');
+    expect(value).toEqual('I HERE');
   });
 
   it('reverses a string', () => {
-    const value = reverse(' I HERE');
-    expect(value).toEqual('EREH I ');
+    const value = reverse('I HERE');
+    expect(value).toEqual('EREH I');
   });
 
   it('trims a string', () => {
-    const value = trim('EREH I ');
+    const value = trim('EREH I');
     expect(value).toEqual('EREH I');
   });  
 
