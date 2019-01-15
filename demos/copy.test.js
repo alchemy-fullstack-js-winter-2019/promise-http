@@ -22,8 +22,12 @@ describe('copy', () => {
         return Promise.all([
           fsPromises.readFile('./promises.md'),
           fsPromises.readFile('./promises-copy.md')
-        ])
+        ]);
+      })
+        .then(([httpMd, httpCopyMd]) => {
+          expect(httpMd).toEqual(httpCopyMd);
+        })
         .catch(err => expect(err).toBeFalsy());
-      });
   });
+
 });
