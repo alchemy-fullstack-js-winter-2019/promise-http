@@ -1,0 +1,27 @@
+{
+  "name": "promise-http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paigeegorry/promise-http.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paigeegorry/promise-http/issues"
+  },
+  "homepage": "https://github.com/paigeegorry/promise-http#readme",
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "jest": "^23.6.0"
+  }
+}
