@@ -6,7 +6,15 @@ describe('app', () => {
     return request(app)
       .get('/testing')
       .then(res => {
-        expect(res.text).toEqual('testing123');
+        expect(res.body).toEqual({ testing: 123 });
+      });
+  });
+
+  it('returns json', () => {
+    return request(app)
+      .get('/testing')
+      .then(res => {
+        expect(res.text).toEqual(JSON);
       });
   });
 });
