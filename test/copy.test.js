@@ -4,7 +4,7 @@ const copy = require('../lib/copy');
 
 describe('copy', () => {
   afterEach(() => {
-    return fsPromises.unlink('http-copy.md');
+    return fsPromises.unlink('./http-copy.md');
   });
   it('copies a file', () => {
     return copy('./http.md', './http-copy.md')
@@ -21,3 +21,4 @@ describe('copy', () => {
 
   });
 });
+
