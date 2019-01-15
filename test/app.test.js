@@ -1,10 +1,10 @@
 const request = require('supertest');
-const app = require('../lib/app');
+const { app } = require('../lib/app');
 
 describe('app', () => {
   it('has a testing route', () => {
     return request(app)
-      .get('./testing')
+      .get('/tester')
       .then(res => {
         expect(res.text).toEqual('testing123');
       });
@@ -14,11 +14,13 @@ describe('app', () => {
 describe('app2', () => {
   it('has a testing route', () => {
     return request(app)
-      .get('./testing')
+      .get('/testing')
       .then(res => {
-        expect(res).toEqual({
-          testing: '123'
-        });
+        expect(res.body).toEqual(
+          {
+            testing: 123
+          }
+        );
       });
   });
 });
