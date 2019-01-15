@@ -1,9 +1,9 @@
 const fsPromises = require('fs').promises;
-import { copy, fsPromises } from 'fs';
+const copy = require('./copy');
+const fs = require('fs');
 
 afterEach(() => {
-  //remove the copied file
-
+  return fsPromises.unlink('./http-copy.md');
 });
 
 describe('copy', () => {
@@ -14,12 +14,12 @@ describe('copy', () => {
         return Promise.all([
           fsPromises.readFile('./http.md'),
           fsPromises.readFile('./http-copy.md')
-        ])
-        .then(([httpMd, httpCopyMd]) ={
-          expect(httpMd).toEqual(httpCopyMd);
-        })
-        .catch(err => expect(err).toBeFalsy());
+        ]);
+      })
+      .then(([httpMd, httpCopyMd]) => {
+        expect(httpMd).toEqual(httpCopyMd);
+      })
+      .catch(err => expect(err).toBeFalsy());
         
-      });
   });
 });
