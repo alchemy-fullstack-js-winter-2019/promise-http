@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint .",
-    "pretest": "npm run lint" 
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.3",
-    "shortid": "^2.2.14"
+    "shortid": "^2.2.14",
+    "superagent": "^4.1.0"
   }
 }

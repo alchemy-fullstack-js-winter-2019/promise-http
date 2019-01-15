@@ -5,7 +5,7 @@ const fsPromises = require('fs').promises;
 describe('copy', () => {
   afterEach(() => {
     return fsPromises.unlink('./http-copy(1).md');
-  })
+  });
 
   it('copies a file', () => {
     return copy('./http.md', './http-copy(1).md')
