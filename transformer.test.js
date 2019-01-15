@@ -7,4 +7,4 @@ describe('transformer', () => {
         expect(transTxt).toEqual('EREH I');
       });
   });
-})
+});

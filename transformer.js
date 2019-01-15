@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const fsPromises = require('fs').promises
+const fsPromises = require('fs').promises;
 const read = src => fsPromises.readFile(src, { encoding: 'utf8' });
 
 const removeCapitals = str => {
