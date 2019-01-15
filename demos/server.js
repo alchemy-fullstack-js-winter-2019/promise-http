@@ -19,17 +19,18 @@ const { parse } = require('url');
 http.createServer((req, res) => {
   const url = parse(req.url);
   res.setHeader('Content-Type', 'text/html');
-  if(url.path === '/birthday') {
+  if(url.pathname === '/birthday') {
     res.end('<html>Happy Birthday<html>');
   }
-  else if(url.path === '/tomorrow') {
+  else if(url.pathname === '/tomorrow') {
     res.end('<html>Tomorrow, Tomorrow<html>');
   }
   else if(url.pathname === '/birthday/tomorrow') {
     res.end('<html>Tomorrow is your birthday<html>');
   }
   else {
-    res.end('<html><body>Thanks for visiting!</body></html>');
+    res.statusCode = 404;
+    res.end('<html>Not found</html>');
   }
 })
   .listen(7890);
