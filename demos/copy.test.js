@@ -24,10 +24,10 @@ describe('copy', () => {
           fsPromises.readFile('./promises-copy.md')
         ]);
       })
-        .then(([httpMd, httpCopyMd]) => {
-          expect(httpMd).toEqual(httpCopyMd);
-        })
-        .catch(err => expect(err).toBeFalsy());
+      .then(([httpMd, httpCopyMd]) => {
+        expect(httpMd).toEqual(httpCopyMd);
+      })
+      .catch(err => expect(err).toBeFalsy());
   });
 
 });
