@@ -5,3 +5,5 @@ module.exports = (src, dst) => {
     .then(data => fsPromises.writeFile(dst, data))
     .catch(err => console.error(err));
 };
+
+
