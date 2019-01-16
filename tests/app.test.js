@@ -4,17 +4,18 @@ const app = require('../lib/app');
 describe('app', () => {
   it('has a tester route', () => {
     return request(app)
-      .get('/testing')
+      .get('/you')
+      .query({ name: 'abel' })
       .then(res => {
-        expect(res.body).toEqual({ testing: 123 });
+        expect(res.body).toEqual({ hi: 'there abel' });
       });
   });
 
-  it('returns json', () => {
-    return request(app)
-      .get('/testing')
-      .then(res => {
-        expect(res.text).toEqual(JSON);
-      });
-  });
+  // it('has a tester route', () => {
+  //   return request(app)
+  //     .get('/you')
+  //     .then(res => {
+  //       expect(res.text).toEqual('testing: 123');
+  //     });
+  // });
 });
