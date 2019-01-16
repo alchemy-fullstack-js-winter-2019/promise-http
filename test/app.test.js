@@ -1,13 +1,13 @@
-const request = require('supertest');
 const { app } = require('../lib/app');
+const request = require('supertest');
 
 describe('app', () => {
-  it.skip('has a tester route', () => {
+  it('has a tester route', () => {
     return request(app)
-      .post('/you')
-      .send({})
+      .post('/note')
+      .send({ text: 'Im a note' })
       .then(res => {
-        expect(res.body).toEqual({ hi: 'there kate' });
+        expect(res.status).toEqual(204);
       });
   });
 });
