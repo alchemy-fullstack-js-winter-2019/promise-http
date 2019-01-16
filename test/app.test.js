@@ -24,6 +24,18 @@ describe('test app', () => {
                 expect(res.status).toEqual(204);
             });
     });
+
+    it('can return json based on an ID form URL', () => {
+        return request(app)
+            .get('/character/1')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'Rick Sanchez', 
+                    status: 'Alive', 
+                    species: 'Human'
+                });
+            });
+    });
 });
 
 
