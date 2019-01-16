@@ -14,7 +14,6 @@ describe('rick and morty service', () => {
   it('can get a list of characters', () => {
     return getCharacters()
       .then(characters => {
-        console.log(characters);
         expect(characters).toHaveLength(20);
         // expect(characters[0]).toEqual({
         //   name: 'Rick Sanchez',

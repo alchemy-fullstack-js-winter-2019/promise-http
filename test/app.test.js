@@ -33,13 +33,27 @@ describe('app', () => {
       });
   });
 
-  // it('can return all characters', () => {
-  //   return request(app)
-  //     .get('/character')
-  //     .then(res => {
-        
-  //     });
-  // });
+  it('can return all characters', () => {
+    return request(app)
+      .get('/character')
+      .then(res => {
+        expect(res.text).toEqual(`<html>
+        <body><div>
+              <p>Name: Rick Sanchez</p>
+              <ul>
+                <li>Status: Alive</li>
+                <li>Species: Human</li>
+              </ul>
+            </div><div>
+              <p>Name: Morty Smith</p>
+              <ul>
+                <li>Status: Alive</li>
+                <li>Species: Human</li>
+              </ul>
+            </div></body>
+        </html>`);
+      });
+  });
 
   // it('can post a note to a specific character', () => {
   //   return request(app)
