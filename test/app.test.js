@@ -9,11 +9,21 @@ describe('app', () => {
   //       expect(res.text).toEqual('testing123');
   //     });
   // });
+
+  // it('has a testing route', () => {
+  //   return request(app)
+  //     .get('/tester')
+  //     .then(res => {
+  //       expect(res.body).toEqual({ testing: 123 });
+  //     });
+  // });
+
   it('has a testing route', () => {
     return request(app)
-      .get('/tester')
+      .get('/you')
+      .query({ name: 'cari' })
       .then(res => {
-        expect(res.body).toEqual({ testing: 123 });
+        expect(res.body).toEqual({ hi: 'there cari' });
       });
   });
 });
