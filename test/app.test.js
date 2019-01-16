@@ -1,17 +1,14 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-// jest.mock('../lib/services/rickAndMortyApi.js', () => ({
-//   getCharacter() {
-//     return Promise.resolve({
-//       name: 'Rick Sanchez',
-//       species: 'Human',
-//       status: 'Alive'
-//     });
-//   }
-// }));
-
 jest.mock('../lib/services/rickAndMortyApi.js', () => ({
+  getCharacter() {
+    return Promise.resolve({
+      name: 'Rick Sanchez',
+      species: 'Human',
+      status: 'Alive'
+    });
+  },
   getCharacters() {
     return Promise.resolve(['Rick Sanchez',
       'Morty Smith',
