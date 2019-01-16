@@ -4,9 +4,12 @@ const EventEmitter = require('events');
 describe('bodyParser', () => {
   it('parses a requests body', () => {
     const req = new EventEmitter();
-    req.getHeader = () => 'application/json';
+    req.headers = {
+      'content-type': 'application/json'
+    };
     req.method = 'POST';
-    req.headers = {};
+
+    
     const promise = bodyParser(req)
       .then(json => {
         expect(json).toEqual({ testing: 1234 });

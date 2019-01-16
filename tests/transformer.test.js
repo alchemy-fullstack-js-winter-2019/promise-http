@@ -1,4 +1,7 @@
-const transformer = require('../lib/transformer');
+const {
+  transformer,
+  removeCapitals
+} = require('../lib/transformer');
 
 describe('transformer', () => {
   it('transforms some file', () => {
@@ -6,5 +9,9 @@ describe('transformer', () => {
       .then(transTxt => {
         expect(transTxt).toEqual('EREH I');
       });
+  });
+
+  it('removes capital letters', () => {
+    expect(removeCapitals('Hi There')).toEqual('i here');
   });
 });

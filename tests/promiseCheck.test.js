@@ -8,6 +8,6 @@ describe('promiseCheck', () => {
   });
 
   it('returns false if you pass it a non-promise', () => {
-    expect(fsPromises({})).toBeFalsy();
+    expect(promiseCheck({})).toBeFalsy();
   });
 });
