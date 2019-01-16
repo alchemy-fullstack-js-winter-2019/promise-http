@@ -37,12 +37,16 @@ describe('app', () => {
     return request(app)
       .get('/character')
       .then(res => {
-        expect(res.body).toHaveLength(20);
-        expect(res.body[0]).toEqual({
-          name: 'Rick Sanchez',
-          status: 'Alive',
-          species: 'Human'
-        });
+        
       });
   });
+
+  // it('can post a note to a specific character', () => {
+  //   return request(app)
+  //     .post('/character')
+  //     .send({ character: '1', : 'my favorite character' })
+  //     .then(res => {
+  //       expect(res.status).toEqual(204);
+  //     });
+  // });
 });
