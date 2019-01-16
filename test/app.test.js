@@ -20,6 +20,14 @@ describe('app', () => {
   });
 
   it('can get character based on id', () => {
-    
+    return request(app)
+      .get('/character/1')
+      .then(res => {
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          status: 'Alive',
+          species: 'Human'
+        });
+      });
   });
 });
