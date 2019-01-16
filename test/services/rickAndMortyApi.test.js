@@ -1,5 +1,6 @@
 const {
-  getCharacter
+  getCharacter,
+  getCharacters
 } = require('../../lib/services/rickAndMortyApi');
 
 describe('rick and morty service', () => {
@@ -11,6 +12,13 @@ describe('rick and morty service', () => {
           status: 'Alive',
           species: 'Human'
         });
+      });
+  });
+
+  it('gets a list of characters', () => {
+    return getCharacters()
+      .then(characters => {
+        expect(characters).toHaveLength(20);
       });
   });
 });
