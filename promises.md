@@ -45,6 +45,17 @@
   * invoke your transform function
   * `then` expect that the result is what you think it should be
 
+## Is it a promise
+
+* write a `promiseCheck.js` and `promiseCheck.test.js`
+* test
+  * pass a promise to `promiseCheck` and
+    expect it to return true
+  * pass a non-promise to `promiseCheck` and
+    expect it to return false
+* `promiseCheck(toCheck)` is a function that
+  returns `true` if toCheck is a promise.
+
 ## Create a promise
 
 * require `const fs = require('fs')`
@@ -78,4 +89,3 @@
 
 * use `jest.mock` to mock your `rickAndMortyApi.js`
   * Use `Promise.resolve` to return a promise that resolves with some data
-
