@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
+jest.mock('../service/__mocks__/rickAndMortyApi.js');
+
 describe('app', () => {
 
   it('responds to a POST on /note', () => {
