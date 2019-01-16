@@ -1,6 +1,19 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
+jest.mock('../lib/services/rickAndMortyApi.js', () => ({
+  getCharacter() {
+    // return a promise
+    return Promise.resolve({
+      name: 'Rick Sanchez',
+      species: 'Human',
+      status: 'Alive'
+    });
+    // promise should resolve with { name, status, species }
+    // HINT: look and use Promise.resolve()
+  }
+}));
+
 // Server and App test
 // describe('app', () => {
 //   it('has a tester route', () => {
