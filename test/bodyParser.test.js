@@ -1,4 +1,4 @@
-const bodyParser = require('./lib/bodyParser');
+const bodyParser = require('../lib/bodyParser');
 const EventEmitter = require('events');
 
 describe('bodyParser', () => {
@@ -9,7 +9,9 @@ describe('bodyParser', () => {
         expect(json).toEqual({ testing: 1234 });
       });
 
-    req.emit('data', JSON.stringify({ testing 1234 }));
-    req emit('end')
-  })
-})
+    req.emit('data', JSON.stringify({ testing: 1234 }));
+    req.emit('end');
+
+    return promise;
+  });
+});
