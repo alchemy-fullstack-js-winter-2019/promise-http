@@ -1,4 +1,4 @@
-const promiseCheck = require('./promiseCheck');
+const promiseCheck = require('../promiseCheck');
 const fsPromises = require('fs').promises;
 
 describe('promiseCheck', () => {

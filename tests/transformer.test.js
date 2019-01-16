@@ -1,4 +1,4 @@
-const transformer = require('./transformer');
+const transformer = require('../lib/transformer');
 
 describe('transformer', () => {
   it('transforms some file', () => {

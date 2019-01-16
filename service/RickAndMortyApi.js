@@ -1,4 +1,5 @@
 const request = require ('superagent');
+const { getCharacter } = require('../tests/rickAndMortyApi.test');
 
 const getCharacter = id => {
   request

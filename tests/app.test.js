@@ -5,11 +5,16 @@ describe('app', () => {
 
   it('responds to a POST on /note', () => {
     return request(app)
-      .post('/note')
+      .post('/character/1')
       .send({ text: 'This is a note' })
       .then(res => {
-        expect(res.status).toEqual(204);
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          species: 'Human',
+          status: 'Alive'
+        });
       });
+
   });
 
   // it('has a tester route', () => {
