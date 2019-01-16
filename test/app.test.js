@@ -9,4 +9,11 @@ describe('app', () => {
         expect(res.body).toEqual({ testing: 123 });
       });
   });
+  it('can take a query string', () => {
+    return request(app)
+      .get('/you?name=unclebob')
+      .then(res => {
+        expect(res.body).toEqual({ text: 'hi there unclebob' });
+      });
+  });
 });
