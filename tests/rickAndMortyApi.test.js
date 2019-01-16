@@ -1,17 +1,27 @@
-const { getCharacter } = require('../service/RickAndMortyApi');
+const { 
+  getCharacter,
+  getCharacters
+} = require('../service/__mocks__/rickAndMortyApi');
+
+describe('rick and morty service', () => {
+  it('gets a character by id', () => {
+    return getCharacter(1)
+      .then(character => {
+        expect(character).toEqual({
+          name: 'Rick Sanchez',
+          status: 'Alive',
+          species: 'Human'
+        });
+      });
+  });
+});
 
 describe('RickAndMortyApi', () => {
-  it('exports a function that takes an id and returns a promise that resolves to a character', () => {
-    return getCharacter(1)
+  it('gets a list of characters', () => {
+    return getCharacters(1)
       .then(character => {
         console.log(character);
       });
-    // .then(character => {
-    //   expect(character).toEqual({
-    //     name: 'Rick Sanchez',
-    //     status: 'Alive',
-    //     species: 'Human'
-    //   });
-    // });
+    
   });
 });

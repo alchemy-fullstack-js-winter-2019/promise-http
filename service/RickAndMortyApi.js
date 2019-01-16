@@ -1,5 +1,5 @@
 const request = require ('superagent');
-const { getCharacter } = require('../tests/rickAndMortyApi.test');
+
 
 const getCharacter = id => {
   request
@@ -11,6 +11,20 @@ const getCharacter = id => {
     }));
 };
 
+const getCharacters = () => {
+  return request
+    .get(`https://rickandmortyapi.com/api/character`)
+    .then(res => {
+      return res.body.results.map(char => ({
+        name: char.name,
+        species: char.species,
+        status: char.status
+      }));
+      
+    });
+};
+
 module.exports = {
-  getCharacter
+  getCharacter,
+  getCharacters
 };
