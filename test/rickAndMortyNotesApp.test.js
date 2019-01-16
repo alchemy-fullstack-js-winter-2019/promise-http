@@ -4,7 +4,7 @@ const app = require('../lib/rickAndMortyNotesApp');
 jest.mock('../lib/services/rickAndMortyGetCharactersApi.js');
 
 describe('rick and morty notes app', () => {
-  it('has a tester route', () => {
+  it('can list the characters on the characters route', () => {
     return request(app)
       .get('/characters')
       .then(res => {
@@ -20,6 +20,15 @@ describe('rick and morty notes app', () => {
             </body>
           </html>`  
         );
+      });
+  });
+
+  it('can post notes', () => {
+    return request(app)
+      .post('/characters')
+      .send({ characterId: 1234, note: 'My favorite character' })
+      .then(res => {
+        expect(res.statusCode).toEqual(200);
       });
   });
 });
