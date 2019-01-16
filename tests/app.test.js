@@ -2,12 +2,13 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 describe('app', () => {
-  it('has a tester route', () => {
+
+  it('responds to a POST on /note', () => {
     return request(app)
-      .get('/you')
-      .query({ name: 'abel' })
+      .post('/note')
+      .send({ text: 'This is a note' })
       .then(res => {
-        expect(res.body).toEqual({ hi: 'there abel' });
+        expect(res.status).toEqual(204);
       });
   });
 
