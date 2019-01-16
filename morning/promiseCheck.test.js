@@ -1,15 +1,13 @@
 const checker = require('./promiseCheck.js');
-describe('it checks if a promise is returned', () => {
-    it('returns true or false checking for a promise', () => {
-        const promise = function(x) {
-            return x * 2;
-        }.then(console.log('done'));
-        const notAPromise = function(x){
-            return x * 2;
-        };
-        expect(checker(promise)).toBeTruthy;
-        expect(checker(notAPromise)).toBeFalsy;
+const fsPromises = require('fs').promises;
+
+
+describe('promiseCheck', () => {
+    it('returns true if it is a promise', () => {
+        expect(checker(fsPromises.readFile('./http.md'))).toBeTruthy();
+    });
+  
+    it('returns false if it is not a promise', () => {
+        expect(checker({})).toBeFalsy();
     });
 });
-
-
