@@ -1,7 +1,7 @@
 const request  = require('supertest');
 const app = require('../lib/app');
 
-jest.mock('../lib/services/__mocks__/rickAndMortyApi');
+jest.mock('../lib/services/rickAndMortyApi');
 
 describe('test app', () => {
     it('has a testing route', () => {
@@ -36,6 +36,21 @@ describe('test app', () => {
                     status: 'Alive', 
                     species: 'Human'
                 });
+            });
+    });
+    it('can return a list of characters in HTML form', () => {
+        return request(app)
+            .get('/characters')
+            .then(res => {
+                expect(res.text).toHaveLength(737);
+            });
+    });
+    it('add property note to character based on ID', () => {
+        return request(app)
+            .post('/characters')
+            .send({ characterId: 1234, note: 'My favorite character' })
+            .then(res => {
+                expect(res.status).toEqual(204);
             });
     });
 });
