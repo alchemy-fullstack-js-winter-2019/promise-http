@@ -33,13 +33,13 @@ describe('app', () => {
       });
   });
 
-  it('can return all characters', () => {
-    return request(app)
-      .get('/character')
-      .then(res => {
+  // it('can return all characters', () => {
+  //   return request(app)
+  //     .get('/character')
+  //     .then(res => {
         
-      });
-  });
+  //     });
+  // });
 
   // it('can post a note to a specific character', () => {
   //   return request(app)
