@@ -18,7 +18,7 @@ const transform = src => {
     .then(data => makeCaps(data))
     .then(data => reverse(data))
     .then(data => trim(data))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err)); // eslint-disable-line no-console
 };
 
 module.exports = { 

@@ -10,8 +10,8 @@ const fsPromises = require('fs').promises;
 //OR
 fsPromises.readFile('./promises.md', { encoding: 'utf8' })
   .then(data => fsPromises.writeFile('./promises-copy.md', data))
-  .then(() => console.log('done!'))
-  .catch(err => console.log(err));
+  .then(() => console.log('done!')) // eslint-disable-line no-console
+  .catch(err => console.log(err)); // eslint-disable-line no-console
 
 //OR
 // fsPromises.readFile('./promises.md', { encoding: 'utf8' })

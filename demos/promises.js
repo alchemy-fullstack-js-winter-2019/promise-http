@@ -7,4 +7,4 @@ const readPromise = src => new Promise((resolve, reject) => {
   });
 });
 
-readPromise('./promises.md').then(data => console.log(data));
+readPromise('./promises.md').then(data => console.log(data)); // eslint-disable-line no-console

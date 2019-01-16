@@ -20,7 +20,7 @@ request
     }));
   })
   .then(originRess => originRess.map(originRess => originRess.body)) // get body only
-  .then(origins => console.log(origins))
+  .then(origins => console.log(origins)) // eslint-disable-line no-console
   .catch(err => {
     throw err;
   });
