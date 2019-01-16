@@ -37,6 +37,7 @@ describe('rickAndMortyApi service', () => {
           'Antenna Morty',
           'Antenna Rick',
           'Ants in my Eyes Johnson']);
+        expect(characters).toHaveLength(20);
       });
   });
 });
