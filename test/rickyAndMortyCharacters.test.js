@@ -1,6 +1,9 @@
 const request = require('supertest');
 const app = require('../lib/rickAndMortyCharacters');
 
+//mocking a function in order to limit calls on third party apis
+jest.mock('../lib/services/rickAndMortyApi.js');
+
 describe('rick and morty characters app', () => {
   it('has a tester route', () => {
     return request(app)
