@@ -1,23 +1,13 @@
 const request = require('supertest');
 const app = require('../lib/app');
-const bodyParser = require('../lib/bodyParser');
-const note = { text: 'This is a note' };
 
 describe('app', () => {
   it('has a testing route', () => {
     return request(app)
-      .get('/tester')
-      .then(res => {
-        expect(res.body).toEqual({ testing: 123 });
-      });
-  });
-
-  it.only('can POST data', () => {
-    return request(app)
       .post('/note')
-      .send(bodyParser(note))
+      .send({ text: 'This is a note' })
       .then(res => {
-        expect(bodyParser(res.body)).toEqual({ text: 'This is a note' });
+        expect(res.status).toEqual(204);
       });
   });
 
@@ -27,5 +17,9 @@ describe('app', () => {
       .then(res => {
         expect(res.body).toEqual({ text: 'hi there unclebob' });
       });
+  });
+
+  it('can get character based on id', () => {
+    
   });
 });
