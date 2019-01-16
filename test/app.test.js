@@ -9,28 +9,28 @@ jest.mock('../lib/services/rickAndMortyApi.js', () => ({
       status: 'Alive'
     });
   },
-  getCharacters() {
-    return Promise.resolve(['Rick Sanchez',
-      'Morty Smith',
-      'Summer Smith',
-      'Beth Smith',
-      'Jerry Smith',
-      'Abadango Cluster Princess',
-      'Abradolf Lincler',
-      'Adjudicator Rick',
-      'Agency Director',
-      'Alan Rails',
-      'Albert Einstein',
-      'Alexander',
-      'Alien Googah',
-      'Alien Morty',
-      'Alien Rick',
-      'Amish Cyborg',
-      'Annie',
-      'Antenna Morty',
-      'Antenna Rick',
-      'Ants in my Eyes Johnson']);
-  }
+  // getCharacters() {
+  //   return Promise.resolve(['Rick Sanchez',
+  //     'Morty Smith',
+  //     'Summer Smith',
+  //     'Beth Smith',
+  //     'Jerry Smith',
+  //     'Abadango Cluster Princess',
+  //     'Abradolf Lincler',
+  //     'Adjudicator Rick',
+  //     'Agency Director',
+  //     'Alan Rails',
+  //     'Albert Einstein',
+  //     'Alexander',
+  //     'Alien Googah',
+  //     'Alien Morty',
+  //     'Alien Rick',
+  //     'Amish Cyborg',
+  //     'Annie',
+  //     'Antenna Morty',
+  //     'Antenna Rick',
+  //     'Ants in my Eyes Johnson']);
+  // }
 }));
 
 // jest.mock('../lib/services/rickAndMortyApi.js', () => ({
@@ -98,44 +98,24 @@ describe('app', () => {
   // });
 
   // rick and morty character by ID
-  // it('can return JSON that displays character details by ID', () => {
-  //   return request(app)
-  //     .get('/character/1')
-  //     .then(res => {
-  //       expect(res.body).toEqual({
-  //         name: 'Rick Sanchez',
-  //         species: 'Human',
-  //         status: 'Alive'
-  //       });
-  //     });
-  // });
-
-  // Rick and Morty notes
-  it('can return JSON that displays all characters', () => {
+  it('can return JSON that displays character details by ID', () => {
     return request(app)
-      .get('/characters/')
+      .get('/character/1')
       .then(res => {
-        // expect(res.body).toEqual(['Rick Sanchez',
-        //   'Morty Smith',
-        //   'Summer Smith',
-        //   'Beth Smith',
-        //   'Jerry Smith',
-        //   'Abadango Cluster Princess',
-        //   'Abradolf Lincler',
-        //   'Adjudicator Rick',
-        //   'Agency Director',
-        //   'Alan Rails',
-        //   'Albert Einstein',
-        //   'Alexander',
-        //   'Alien Googah',
-        //   'Alien Morty',
-        //   'Alien Rick',
-        //   'Amish Cyborg',
-        //   'Annie',
-        //   'Antenna Morty',
-        //   'Antenna Rick',
-        //   'Ants in my Eyes Johnson']);
-        expect(res.body).toHaveLength(20);
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          species: 'Human',
+          status: 'Alive'
+        });
       });
   });
+
+  // Rick and Morty notes
+  // it('can return JSON that displays all characters', () => {
+  //   return request(app)
+  //     .get('/characters/')
+  //     .then(res => {
+  //       expect(res.body).toHaveLength(20);
+  //     });
+  // });
 });
