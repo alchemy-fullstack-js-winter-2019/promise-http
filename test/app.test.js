@@ -104,7 +104,7 @@ describe('app', () => {
   // });
 
   // Rick and Morty notes
-  // it('can return JSON that displays all characters', () => {
+  // it('can return HTML that displays all characters on pg1', () => {
   //   return request(app)
   //     .get('/characters/')
   //     .then(res => {
@@ -123,10 +123,23 @@ describe('app', () => {
   it('has a POST route', () => {
     return request(app)
       .post('/characters')
-      // .send({ 1234: 'My favorite character' }) 
       .send({ characterId: 1234, note: 'My favorite character' }) 
       .then(res => {
         expect(res.status).toEqual(204);
       });
   });
+
+  // GET to /characters/1234
+  // beforeEach('posts a note', () => {
+  //   return request(app)
+  //     .post('/characters')
+  //     .send({ characterId: 1234, note: 'this is a note' });
+  // });
+  // it('returns HTML that displays a character and all notes about them', () => {
+  //   return request(app)
+  //     .get('/characters/1234')
+  //     .then(res => {
+  //       expect(res.text).toString();
+  //     });
+  // });
 });
