@@ -26,7 +26,7 @@ describe('test api', () => {
 
         return charList()
             .then(ele => {
-
+                console.log(ele);
                 expect(ele.length).toEqual(20);
                 expect(ele[0].name).toEqual(rick.name);
             });
