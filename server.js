@@ -1,4 +1,3 @@
-const http = require('http');
-const app = require('./lib/rickAndMortyCharacters');
+const app = require('./lib/rickAndMortyNotesApp');
 
-http.createServer(app).listen(7890);
+app.listen(7890);
