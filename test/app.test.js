@@ -31,21 +31,28 @@ describe('app', () => {
   // });
 
   // POSTing data
-  it('has a POST route', () => {
+  // it('has a POST route', () => {
+  //   return request(app)
+  //     .post('/note')
+  //     .send({ text: 'Im a note' }) 
+  //     .then(res => {
+  //       expect(res.status).toEqual(204);
+  //     });
+  // });
+
+  // rick and morty character by ID
+  it('can return JSON that displays character details by ID', () => {
     return request(app)
-      .post('/note')
-      .send({ text: 'Im a note' }) 
+      .get('/character/1')
       .then(res => {
-        expect(res.status).toEqual(204);
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          species: 'Human',
+          status: 'Alive'
+        });
       });
   });
 
   // Rick and Morty notes
-  // it('can return HTML that displays a list of characters', () => {
-  //   return request(app)
-  //     .get('/characters')
-  //     .then(res => {
-  //       expect(res.body).toEqual();
-  //     });
-  // });
+  // it('', () => {});
 });
