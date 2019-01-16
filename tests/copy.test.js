@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const fsPromises = require('fs').promises;
 const copy = require('../lib/copy');
 const fs = require('fs');
