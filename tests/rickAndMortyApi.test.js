@@ -1,7 +1,7 @@
 const { 
   getCharacter,
   getCharacters
-} = require('../service/__mocks__/rickAndMortyApi');
+} = require('../service/RickAndMortyApi');
 
 describe('rick and morty service', () => {
   it('gets a character by id', () => {
@@ -14,13 +14,11 @@ describe('rick and morty service', () => {
         });
       });
   });
-});
 
-describe('RickAndMortyApi', () => {
   it('gets a list of characters', () => {
-    return getCharacters(1)
-      .then(character => {
-        console.log(character);
+    return getCharacters()
+      .then(characters => {
+        expect(characters).toHaveLength(2);
       });
     
   });

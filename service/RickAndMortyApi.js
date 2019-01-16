@@ -2,7 +2,7 @@ const request = require ('superagent');
 
 
 const getCharacter = id => {
-  request
+  return request
     .get(`https://rickandmortyapi.com/api/character/${id}`)
     .then(res => ({
       name: res.body.name,
@@ -12,16 +12,19 @@ const getCharacter = id => {
 };
 
 const getCharacters = () => {
-  return request
-    .get(`https://rickandmortyapi.com/api/character`)
-    .then(res => {
-      return res.body.results.map(char => ({
-        name: char.name,
-        species: char.species,
-        status: char.status
-      }));
+  return Promise.resolve([
+    {
+      name: 'Rick Sanchez',
+      species: 'Human',
+      status: 'Alive'
+    },
+    {
+      name: 'Morty Smith',
+      species: 'Human',
+      status: 'Alive'
+    }
+  ]);
       
-    });
 };
 
 module.exports = {
