@@ -31,12 +31,21 @@ describe('app', () => {
   // });
 
   // POSTing data
-  // it('has a POST route', () => {
+  it('has a POST route', () => {
+    return request(app)
+      .post('/note')
+      .send({ text: 'Im a note' }) 
+      .then(res => {
+        expect(res.status).toEqual(204);
+      });
+  });
+
+  // Rick and Morty notes
+  // it('can return HTML that displays a list of characters', () => {
   //   return request(app)
-  //     .post('/note')
-  //     .send({ text: 'Im a note' }) 
+  //     .get('/characters')
   //     .then(res => {
-  //       expect(res.status).toEqual(204);
+  //       expect(res.body).toEqual();
   //     });
   // });
 });
