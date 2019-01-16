@@ -11,3 +11,5 @@ describe('it checks if a promise is returned', () => {
         expect(checker(notAPromise)).toBeFalsy;
     });
 });
+
+
