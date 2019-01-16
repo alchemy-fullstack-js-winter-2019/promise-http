@@ -31,12 +31,12 @@ describe('app', () => {
   // });
 
   // POSTing data
-  it('has a POST route', () => {
-    return request(app)
-      .post('/note')
-      .send({ text: 'Im a note' }) 
-      .then(res => {
-        expect(res.status).toEqual(204);
-      });
-  });
+  // it('has a POST route', () => {
+  //   return request(app)
+  //     .post('/note')
+  //     .send({ text: 'Im a note' }) 
+  //     .then(res => {
+  //       expect(res.status).toEqual(204);
+  //     });
+  // });
 });
