@@ -104,18 +104,29 @@ describe('app', () => {
   // });
 
   // Rick and Morty notes
-  it('can return JSON that displays all characters', () => {
+  // it('can return JSON that displays all characters', () => {
+  //   return request(app)
+  //     .get('/characters/')
+  //     .then(res => {
+  //       expect(res.text).toString(`
+  //       <html>
+  //         <body>
+  //           <li>name: Rick Sanchez, status: Alive, species: Human</li>
+  //           <li>name: Morty Smith, status: Alive, species: Human</li>
+  //         </body>
+  //       </html>
+  //       `);
+  //     });
+  // });
+
+  // POST to /characters
+  it('has a POST route', () => {
     return request(app)
-      .get('/characters/')
+      .post('/characters')
+      // .send({ 1234: 'My favorite character' }) 
+      .send({ characterId: 1234, note: 'My favorite character' }) 
       .then(res => {
-        expect(res.text).toString(`
-        <html>
-          <body>
-            <li>name: Rick Sanchez, status: Alive, species: Human</li>
-            <li>name: Morty Smith, status: Alive, species: Human</li>
-          </body>
-        </html>
-        `);
+        expect(res.status).toEqual(204);
       });
   });
 });
