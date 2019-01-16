@@ -4,10 +4,13 @@ const app = require('../lib/app');
 describe('app', () => {
   it('has a tester route', () => {
     return request(app)
-      .post('/note')
-      .send({ text: 'Im a note' })
+      .get('/character/1')
       .then(res => {
-        expect(res.status).toEqual(204);
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          species: 'Human',
+          status: 'Alive'
+        });
       });
   });
 });
