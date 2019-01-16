@@ -1,4 +1,4 @@
-const transformer = require('../lib/transform');
+const transformer = require('./transform');
 
 
 

@@ -1,4 +1,4 @@
-const copy = require('../lib/copy');
+const copy = require('./copy');
 const fsPromises = require('fs').promises;
 
 

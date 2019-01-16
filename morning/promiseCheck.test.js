@@ -1,4 +1,4 @@
-const checker = require('../lib/promiseCheck.js');
+const checker = require('./promiseCheck.js');
 describe('it checks if a promise is returned', () => {
     it('returns true or false checking for a promise', () => {
         const promise = function(x) {
