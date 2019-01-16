@@ -32,4 +32,17 @@ describe('app', () => {
         });
       });
   });
+
+  it('can return all characters', () => {
+    return request(app)
+      .get('/character')
+      .then(res => {
+        expect(res.body).toHaveLength(20);
+        expect(res.body[0]).toEqual({
+          name: 'Rick Sanchez',
+          status: 'Alive',
+          species: 'Human'
+        });
+      });
+  });
 });
