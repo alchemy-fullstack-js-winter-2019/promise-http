@@ -100,6 +100,7 @@
 
 * create an `app.js` file
   * `GET /characters` return HTML that displays a list of characters
+    //set content type to html in end event
     * BONUS: handle filtering with a query string `/characters?status=alive`
   * `POST /characters` takes `{ characterId: 1234, note: 'My favorite character' }`
     * save the note to a notes object. The key should be the characterId and the value

@@ -1,8 +1,8 @@
-const { app } = require('../lib/app');
+const app = require('../lib/app');
 const request = require('supertest');
 
 describe('app', () => {
-  it('has a tester route', () => {
+  it.skip('has a tester route', () => {
     return request(app)
       .post('/note')
       .send({ text: 'Im a note' })
@@ -11,3 +11,18 @@ describe('app', () => {
       });
   });
 });
+
+
+
+
+
+// describe('app', () => {
+//   it('has a tester route', () => {
+//     return request(app)
+//       .post('/note')
+//       .send({ text: 'Im a note' })
+//       .then(res => {
+//         expect(res.status).toEqual(204);
+//       });
+//   });
+// });

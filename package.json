@@ -10,6 +10,7 @@
     "superagent": "^4.1.0"
   },
   "devDependencies": {
+    "shortid": "^2.2.14",
     "supertest": "^3.3.0"
   },
   "scripts": {
