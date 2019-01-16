@@ -1,13 +1,38 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-jest.mock('../lib/service/rickAndMortyApi.js', () => ({
-  getCharacter() {
-    return Promise.resolve({
-      name: 'Rick Sanchez',
-      species: 'Human',
-      status: 'Alive'
-    });
+// jest.mock('../lib/services/rickAndMortyApi.js', () => ({
+//   getCharacter() {
+//     return Promise.resolve({
+//       name: 'Rick Sanchez',
+//       species: 'Human',
+//       status: 'Alive'
+//     });
+//   }
+// }));
+
+jest.mock('../lib/services/rickAndMortyApi.js', () => ({
+  getCharacters() {
+    return Promise.resolve(['Rick Sanchez',
+      'Morty Smith',
+      'Summer Smith',
+      'Beth Smith',
+      'Jerry Smith',
+      'Abadango Cluster Princess',
+      'Abradolf Lincler',
+      'Adjudicator Rick',
+      'Agency Director',
+      'Alan Rails',
+      'Albert Einstein',
+      'Alexander',
+      'Alien Googah',
+      'Alien Morty',
+      'Alien Rick',
+      'Amish Cyborg',
+      'Annie',
+      'Antenna Morty',
+      'Antenna Rick',
+      'Ants in my Eyes Johnson']);
   }
 }));
 
@@ -64,5 +89,30 @@ describe('app', () => {
   // });
 
   // Rick and Morty notes
-  // it('', () => {});
+  it('can return JSON that displays all characters', () => {
+    return request(app)
+      .get('/characters/')
+      .then(res => {
+        expect(res.body).toEqual(['Rick Sanchez',
+          'Morty Smith',
+          'Summer Smith',
+          'Beth Smith',
+          'Jerry Smith',
+          'Abadango Cluster Princess',
+          'Abradolf Lincler',
+          'Adjudicator Rick',
+          'Agency Director',
+          'Alan Rails',
+          'Albert Einstein',
+          'Alexander',
+          'Alien Googah',
+          'Alien Morty',
+          'Alien Rick',
+          'Amish Cyborg',
+          'Annie',
+          'Antenna Morty',
+          'Antenna Rick',
+          'Ants in my Eyes Johnson']);
+      });
+  });
 });
