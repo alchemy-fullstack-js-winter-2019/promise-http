@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const promiseCheck = require('../promiseCheck');
 const fsPromises = require('fs').promises;
 
