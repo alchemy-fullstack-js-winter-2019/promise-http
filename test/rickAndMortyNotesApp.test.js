@@ -47,7 +47,11 @@ describe('rick and morty notes app', () => {
         <html>
           <body>
             </ul>
-              <li>My favorite character</li>
+              <li>
+                Go walk the dog
+              </li><li>
+                My favorite character
+              </li> 
             </ul>
           </body>
         </html>`
