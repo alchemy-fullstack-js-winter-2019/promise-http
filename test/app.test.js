@@ -47,7 +47,7 @@ describe('app', () => {
       });
   });
 
-  it.only('can post a note to a specific character', () => {
+  it('can post a note to a specific character', () => {
     return request(app)
       .post('/character')
       .send({ characterId: 1, note: 'My favorite character' })
@@ -57,6 +57,10 @@ describe('app', () => {
   });
 
   it('can get the notes for a specific character', () => {
-
+    return request(app)
+      .get('/character/1')
+      .then(res => {
+        expect(res.status).toEqual(200);
+      });
   });
 });
