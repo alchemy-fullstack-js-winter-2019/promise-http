@@ -27,9 +27,11 @@ describe('app', () => {
 
   it('returns a character with all notes', () => {
     return request(app)
-      .get('/characters/1234')
+      .get('/characters/1')
       .then(res => {
-        expect().toEqual();
+        expect(res.text).toEqual(
+          `<html><body><h1>Rick Sanchez</h1><p>Human</p><p>Alive</p><p>I\'m a note</p></body></html>`
+        );
       });
   });
 
