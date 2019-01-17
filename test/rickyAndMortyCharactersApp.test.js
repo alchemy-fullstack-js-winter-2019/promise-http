@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../lib/rickAndMortyCharacters');
+const app = require('../lib/rickAndMortyCharactersApp');
 
 //mocking a function in order to limit calls on third party apis
 jest.mock('../lib/services/rickAndMortyApi.js');
