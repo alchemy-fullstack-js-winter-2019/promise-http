@@ -15,4 +15,21 @@ describe('app', () => {
         });
       });
   });
+
+  it('can add a note to a character based on id', () => {
+    return request(app)
+      .post('/characters')
+      .send({ 1234: ['My favorite character'] })
+      .then(res => {
+        expect(res.status).toEqual(200);
+      });
+  });
+
+  it('can get a character by id and their notes', () => {
+    return request(app)
+      .get('/characters/1')
+      .then(res => {
+        expect(res.status).toEqual(200);
+      });
+  });
 });
