@@ -43,6 +43,7 @@ describe('rick and morty notes app', () => {
       .get('/characters/1')
       .then(res => {
         expect(res.text).toEqual(
+        //eslint-disable-next-line
       `
         <html>
           <body>
@@ -51,7 +52,7 @@ describe('rick and morty notes app', () => {
                 Go walk the dog
               </li><li>
                 My favorite character
-              </li> 
+              </li>
             </ul>
           </body>
         </html>`
