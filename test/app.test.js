@@ -53,6 +53,16 @@ describe('test app', () => {
                 expect(res.status).toEqual(204);
             });
     });
+    it('can return information about a single character', () => {
+        return request(app)
+            .get('/characters/1')
+            .then(res => {
+                console.log(res.text.length);
+                expect(res.text).toHaveLength(234);
+            });
+
+
+    });
 });
 
 
