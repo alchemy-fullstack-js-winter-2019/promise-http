@@ -4,14 +4,6 @@ const app = require('../lib/app');
 jest.mock('../lib/services/rickAndMortyApi.js');
 
 describe('app', () => {
-  it('has a testing route', () => {
-    return request(app)
-      .post('/note')
-      .send({ text: 'This is a note' })
-      .then(res => {
-        expect(res.status).toEqual(204);
-      });
-  });
 
   it('can take a query string', () => {
     return request(app)
@@ -55,12 +47,16 @@ describe('app', () => {
       });
   });
 
-  // it('can post a note to a specific character', () => {
-  //   return request(app)
-  //     .post('/character')
-  //     .send({ character: '1', : 'my favorite character' })
-  //     .then(res => {
-  //       expect(res.status).toEqual(204);
-  //     });
-  // });
+  it.only('can post a note to a specific character', () => {
+    return request(app)
+      .post('/character')
+      .send({ characterId: 1, note: 'My favorite character' })
+      .then(res => {
+        expect(res.status).toEqual(204);
+      });
+  });
+
+  it('can get the notes for a specific character', () => {
+
+  });
 });

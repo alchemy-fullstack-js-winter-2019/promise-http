@@ -11,10 +11,10 @@ describe('bodyParser', () => {
 
     const promise = bodyParser(req)
       .then(json => {
-        expect(json).toEqual({ text: 'This is a note' });
+        expect(json).toEqual({ 1: ['My favorite character'] });
       });
       
-    req.emit('data', JSON.stringify({ text: 'This is a note' }));
+    req.emit('data', JSON.stringify({ 1: ['My favorite character'] }));
     req.emit('end');
 
     return promise;
