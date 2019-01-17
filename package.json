@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/kristinhortsch/simple-database#readme",
   "dependencies": {
-    "short-id": "0.1.0-1",
     "superagent": "^4.1.0"
   },
   "devDependencies": {
