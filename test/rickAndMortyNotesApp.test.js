@@ -7,7 +7,6 @@ describe('rick and morty notes app', () => {
   beforeEach(() => {
     return request(app)
       .post('/characters')
-      .send({ characterId: 1, note: 'My favorite character' })
       .send({ characterId: 2, note: 'FOOTBALL TEAMS!' });
   });
   
@@ -41,14 +40,14 @@ describe('rick and morty notes app', () => {
 
   it('can display notes for characters', () => {
     return request(app)
-      .get('/characters/2')
+      .get('/characters/1')
       .then(res => {
         expect(res.text).toEqual(
       `
         <html>
           <body>
             </ul>
-            <li>FOOTBALL TEAMS!</li><li>FOOTBALL TEAMS!</li><li>FOOTBALL TEAMS!</li>
+              <li>My favorite character</li>
             </ul>
           </body>
         </html>`
