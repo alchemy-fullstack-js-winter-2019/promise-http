@@ -15,9 +15,9 @@ describe('app', () => {
     return request(app)
       .get('/you?name=jei')
       .then(res => {
-        expect(res.body)/toEqual({ text: 'Hey Jei' });
-      });
-  });
+        expect(res.body)/toEqual({ text: 'Hey Jei' })
+      })
+  })
 })
 )};
 
