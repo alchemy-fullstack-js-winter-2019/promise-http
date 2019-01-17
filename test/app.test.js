@@ -57,8 +57,7 @@ describe('test app', () => {
         return request(app)
             .get('/characters/1')
             .then(res => {
-                console.log(res.text.length);
-                expect(res.text).toHaveLength(234);
+                expect(res.text).toHaveLength(222);
             });
 
 
