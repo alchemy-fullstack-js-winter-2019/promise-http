@@ -30,12 +30,37 @@
 * Create an `app.js` file
   * export an http listener function (`(req, res) => {}`)
   * respond to `/tester` with "testing123"
+  <!-- //test app.js
+module.exports = (req, res) => {
+  const url = parse(req.url);
+  if(url.pathname === '/tester') {
+    res.end('testing123');
+  }
+}; -->
 * create a `server.js` file
   * `const app = require('./lib/app')`
   * use `createServer` to create an http server with app
   * use `listen` to start server on a port
+  <!-- const http = require('http');
+const app = require('./lib/app');
+
+http.createServer(app)
+  .listen(7890); -->
 * tests
   * use `supertest` to to test your app
+  const request = require ('supertest');
+<!-- const app = require('../lib/app');
+
+describe('app', () => {
+  it('has a testing route', () => {
+    return request(app)
+      .get('/tester')
+      .then(res => {
+        expect(res.text).toEqual('testing123');
+      });
+  });
+}); -->
+
 
 ## json app
 
