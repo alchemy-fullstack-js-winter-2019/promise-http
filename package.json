@@ -1,0 +1,34 @@
+{
+  "name": "tcp-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinhortsch/simple-database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristinhortsch/simple-database/issues"
+  },
+  "homepage": "https://github.com/kristinhortsch/simple-database#readme",
+  "dependencies": {
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "jest": "^23.6.0",
+    "mkdirp": "^0.5.1",
+    "nodemon": "^1.18.9",
+    "rimraf": "^2.6.3",
+    "supertest": "^3.3.0"
+  },
+  "description": ""
+}
