@@ -2,13 +2,13 @@
   "name": "promise-http",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "start": "nodemon lib/server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
