@@ -3,7 +3,6 @@ const { parse } = require('url');
 
 http.createServer((req, res) => {
   const url = parse(req.url);
-  // console.log(url);
   if(url.pathname === '/birthday') {
     res.end('Happy Birthday');
   } else if(url.pathname === '/tomorrow') {
