@@ -56,29 +56,30 @@ describe('app', () => {
   //         });
   //       });
   //   });
-  
-  //   // Rick and Morty notes
-  //   it('can return HTML that displays all characters on pg1', () => {
-  //     return request(app)
-  //       .get('/characters/')
-  //       .then(res => {
-  //         expect(res.text).toString(`
-  //         <html>
-  //           <body>
-  //             <li>name: Rick Sanchez, status: Alive, species: Human</li>
-  //             <li>name: Morty Smith, status: Alive, species: Human</li>
-  //           </body>
-  //         </html>
-  //         `);
-  //       });
-  //   });
+
   // });
 
 
   // BOTTOM CHUNK
-  // POST to /characters
+  // Rick and Morty notes
   describe('bottom module.exports chunk', () => {
-    it('has a POST route', done => {
+    // GET /characters return HTML that displays a list of characters
+    it('can return HTML that displays all characters on pg1', () => {
+      return request(app)
+        .get('/characters/')
+        .then(res => {
+          expect(res.text).toString(`
+          <html>
+            <body>
+              <li>name: Rick Sanchez, status: Alive, species: Human</li>
+              <li>name: Morty Smith, status: Alive, species: Human</li>
+            </body>
+          </html>
+          `);
+        });
+    });
+    // POST /characters saves a note to the notes object
+    it('has a POST route and can save notes by characterId', done => {
       return request(app)
         .post('/characters')
         .send({
@@ -107,19 +108,27 @@ describe('app', () => {
         });
     });
 
-  //   Ryan's ex...
-  //   it('gets notes for a character', () => {
-  //     return request(app)
-  //       .post('/characters')
-  //       .send({ characterId: 1, note: 'Great' })
-  //       .then(() => {
-  //         return request(app)
-  //           .get('/characters/1');
-  //       })
-  //       .then(res => {
-  //         expect(res.text).toContain('Great');
-  //       });
-  //   });
+    // GET /characters/:id displays a character and all saved notes about them
+    it('can retrieve saved notes for a characterId', () => {
+      return request(app)
+        .post('/characters')
+        .send({ characterId: 100, note: 'This character rocks' })
+        .then(() => {
+          return request(app)
+            .get('/characters/100');
+        })
+        .then(res => {
+          expect(res.text).toContain('This character rocks');
+        });
+    });
+    it('can display error if no notes saved for a characterId', () => {
+      return request(app)
+        .get('/characters/1111')
+        .then(res => {
+          expect(res.text).toContain('No notes saved for character 1111');
+        });
+    });
+
   });
 
 });
