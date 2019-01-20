@@ -122,4 +122,13 @@ describe('app', () => {
       });
   });
 
+  // NOT FOUND
+  it('displays error when path not found', () => {
+    return request(app)
+      .get('/baddabingbaddaboom')
+      .then(res => {
+        expect(res.status).toEqual(404);
+      });
+  });
+
 });
