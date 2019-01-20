@@ -31,7 +31,7 @@ describe('rick and Morty GET and POST api tests', () => {
         return request(app)
           .get('/characters/1')
           .then(res => {
-            expect(res.text).toContain('Rickq');
+            expect(res.text).toContain('Rick');
           });
       });
   });
