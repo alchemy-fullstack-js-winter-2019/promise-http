@@ -78,12 +78,32 @@ describe('app', () => {
   // BOTTOM CHUNK
   // POST to /characters
   describe('bottom module.exports chunk', () => {
-    it('has a POST route', () => {
+    it('has a POST route', done => {
       return request(app)
         .post('/characters')
-        .send({ characterId: 1234, note: 'My favorite character' }) 
+        .send({
+          characterId: 11, 
+          note: 'Rad character' 
+        })
+        .then(() => {
+          return request(app)
+            .post('/characters')
+            .send({
+              characterId: 11, 
+              note: 'another note about same character' 
+            });
+        })
+        .then(() => {
+          return request(app)
+            .post('/characters')
+            .send({
+              characterId: 12, 
+              note: 'Different character note' 
+            });
+        })
         .then(res => {
           expect(res.status).toEqual(204);
+          done();
         });
     });
 
