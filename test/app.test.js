@@ -16,12 +16,21 @@ describe('app', () => {
       });
   });
 
-  it('can add a note to a character based on id', () => {
+  // it('can add a note to a character based on id', () => {
+  //   return request(app)
+  //     .post('/characters')
+  //     .send({ 1234: ['My favorite character'] })
+  //     .then(res => {
+  //       expect(res.status).toEqual(200);
+  //     });
+  // });
+
+  it('saves a note for a character', () => {
     return request(app)
       .post('/characters')
-      .send({ 1234: ['My favorite character'] })
+      .send({ characterId: 1, note: 'Great character' })
       .then(res => {
-        expect(res.status).toEqual(200);
+        expect(res.status).toEqual(204);
       });
   });
 
