@@ -23,16 +23,6 @@ describe('app', () => {
   //         expect(res.body).toEqual({ testing: 123 });
   //       });
   //   });
-  
-  //   // Query Strings
-  //   it('has a query strings testing route', () => {
-  //     return request(app)
-  //       .get('/you')
-  //       .query({ name: 'cari' })
-  //       .then(res => {
-  //         expect(res.body).toEqual({ hi: 'there cari' });
-  //       });
-  //   });
 
   // });
 
@@ -127,6 +117,16 @@ describe('app', () => {
           expect(res.status).toEqual(204);
         });
     });
+  });
+
+  // Query Strings
+  it('has a query strings testing route', () => {
+    return request(app)
+      .get('/you')
+      .query({ name: 'cari' })
+      .then(res => {
+        expect(res.body).toEqual({ hi: 'there cari' });
+      });
   });
 
 });
