@@ -1,30 +1,7 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-jest.mock('../lib/services/rickAndMortyApi.js', () => ({
-  getCharacter() {
-    return Promise.resolve({
-      name: 'Rick Sanchez',
-      species: 'Human',
-      status: 'Alive'
-    });
-  },
-  getCharacters() {
-    return Promise.resolve([
-      {
-        name: 'Rick Sanchez',
-        status: 'Human',
-        species: 'Alive'
-      },
-      {
-        name: 'Morty Smith',
-        status: 'Alive',
-        species: 'Alive'
-      }
-    ]
-    );
-  }
-}));
+jest.mock('../lib/services/rickAndMortyApi.js');
 
 describe('app', () => {
   // TOP CHUNK
@@ -109,6 +86,20 @@ describe('app', () => {
           expect(res.status).toEqual(204);
         });
     });
+
+  //   Ryan's ex...
+  //   it('gets notes for a character', () => {
+  //     return request(app)
+  //       .post('/characters')
+  //       .send({ characterId: 1, note: 'Great' })
+  //       .then(() => {
+  //         return request(app)
+  //           .get('/characters/1');
+  //       })
+  //       .then(res => {
+  //         expect(res.text).toContain('Great');
+  //       });
+  //   });
   });
 
 });
