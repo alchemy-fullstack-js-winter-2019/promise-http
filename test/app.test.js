@@ -44,25 +44,13 @@ describe('app', () => {
   //       });
   //   });
   
-  //   // rick and morty character by ID
-  //   it('can return JSON that displays character details by ID', () => {
-  //     return request(app)
-  //       .get('/character/1')
-  //       .then(res => {
-  //         expect(res.body).toEqual({
-  //           name: 'Rick Sanchez',
-  //           species: 'Human',
-  //           status: 'Alive'
-  //         });
-  //       });
-  //   });
+
 
   // });
 
 
-  // BOTTOM CHUNK
-  // Rick and Morty notes
   describe('bottom module.exports chunk', () => {
+    // Rick and Morty notes
     // GET /characters return HTML that displays a list of characters
     it('can return HTML that displays all characters on pg1', () => {
       return request(app)
@@ -126,6 +114,19 @@ describe('app', () => {
         .get('/characters/1111')
         .then(res => {
           expect(res.text).toContain('No notes saved for character 1111');
+        });
+    });
+
+    // rick and morty character by ID
+    it('can return JSON that displays character details by ID', () => {
+      return request(app)
+        .get('/character/1')
+        .then(res => {
+          expect(res.body).toEqual({
+            name: 'Rick Sanchez',
+            species: 'Human',
+            status: 'Alive'
+          });
         });
     });
 
