@@ -93,7 +93,7 @@ describe('app', () => {
       .then(res => {
         console.log(res.text);
         expect(res.text).toBeTruthy();
-        expect(res.text).toEqual('<html><body><li> Rick Sanchez </li><li> Morty Smith </li><li> Summer Smith </li><li> Beth Smith </li><li> Jerry Smith </li><li> Abadango Cluster Princess </li><li> Abradolf Lincler </li><li> Adjudicator Rick </li><li> Agency Director </li><li> Alan Rails </li><li> Albert Einstein </li><li> Alexander </li><li> Alien Googah </li><li> Alien Morty </li><li> Alien Rick </li><li> Amish Cyborg </li><li> Annie </li><li> Antenna Morty </li><li> Antenna Rick </li><li> Ants in my Eyes Johnson </li></body></html>')
+        expect(res.text).toEqual('<html><body><li> Rick Sanchez </li><li> Morty Smith </li><li> Summer Smith </li><li> Beth Smith </li><li> Jerry Smith </li><li> Abadango Cluster Princess </li><li> Abradolf Lincler </li><li> Adjudicator Rick </li><li> Agency Director </li><li> Alan Rails </li><li> Albert Einstein </li><li> Alexander </li><li> Alien Googah </li><li> Alien Morty </li><li> Alien Rick </li><li> Amish Cyborg </li><li> Annie </li><li> Antenna Morty </li><li> Antenna Rick </li><li> Ants in my Eyes Johnson </li></body></html>');
       });
   });
 
@@ -105,6 +105,21 @@ describe('app', () => {
         expect(res.status).toEqual(204);
       });
   });
+
+  // it('gets notes for a character', () => {
+  //   return request(app)
+  //     .post('/characters')
+  //     .send({ characterId: 1, note: 'Great character' })
+  //     .then(() => {
+  //       return request(app)
+  //         .get('/characters/1');
+
+  //     })
+  //     .then(res => {
+  //       expect(res.text).toContain('Great character');
+  //     });
+
+  // });
 });
 
 
