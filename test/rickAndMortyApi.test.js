@@ -1,4 +1,5 @@
-const { getCharacter } = require('../test/rickAndMortyApi.test.js');
+/*eslint-disable no-console*/
+const { getCharacter, getCharacters } = require('./rickAndMortyApi.test.js');
 
 describe('rick and morty service', () => {
   it('gets a character by id', () => {
@@ -9,6 +10,15 @@ describe('rick and morty service', () => {
           status: 'Alive',
           species: 'Human'
         });
+      });
+  });
+});
+
+describe('rick and morty service 2', () => {
+  it('returns a list of characters', () => {
+    return getCharacters()
+      .then(characters => {
+        expect(characters).toBeDefined();
       });
   });
 });
