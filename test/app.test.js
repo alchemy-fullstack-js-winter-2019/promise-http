@@ -16,10 +16,8 @@ describe('app', () => {
       .get('/you?name=jei')
       .then(res => {
         expect(res.body)/toEqual({ text: 'Hey Jei' })
-      })
-  })
-})
-)};
+      });
+  });
 
 describe('app', () => {
   it('can get character from id', () => {
@@ -30,8 +28,28 @@ describe('app', () => {
           name: 'Rick Sanchesz',
           species: 'Human',
           status: 'Alive'
-        });
       });
+   });
+  it('saves a note for character', () => {
+    return request(app)
+    .post('/characters')
+    .send({ charactersId: 1, note: 'Great Character' })
+    .then(res => {
+      expect(res.status).toEqual(204);
+    });
+  });
+
+  it('gets notes for character', () => {
+    return request(app)
+    .post('/characters')
+    .send({ charactersId: 1, note: 'Great Character' })
+    .then(res => {
+      return request(app)
+        .get('/characters/1');
+    })
+    .then(res => {
+      (expect(res.text).toContain('Great character');
+    });
   });
 });
  
