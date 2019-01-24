@@ -3,34 +3,55 @@ const app = require('../lib/app');
 
 jest.mock('../lib/service/rickAndMortyApi.js');
 
-describe('rick and morty api tests', () => {
-  it('gets a list of characters', () => {
+describe('app', () => {
+  it('has a testing route', () => {
     return request(app)
-      .get('/characters')
-      .then(res => {
-        expect(res.text).toContain('Rick');
-      });
-  });
-
-  it('saves a note for a character', () => {
-    return request(app)
-      .post('/characters')
-      .send({ characterId: 1, note: 'Great character' })
+      .post('/note')
+      .send({ text: 'love note' })
       .then(res => {
         expect(res.status).toEqual(204);
       });
   });
 
-  it('gets notes for a character', () => {
+  it('can take a query string', () => {
     return request(app)
-      .post('/characters')
-      .send({ characterId: 1, note: 'Great character' })
-      .then(() => {
-        return request(app)
-          .get('/characters/1');
-      })
+      .get('/you?name=jj')
       .then(res => {
-        expect(res.text).toContain('Great character');
+        expect(res.body).toEqual({ text: 'howdy' });
+      });
+  });
+
+  it('can get character by id', () => {
+    return request(app)
+      .get('/character/1')
+      .then(res => {
+        expect(res.body).toEqual({
+          name: 'Rick Sanchez',
+          status: 'Alive',
+          species: 'Human'
+        });
+      });
+  });
+
+  it('can get all characters', () => {
+    return request(app)
+      .get('/character')
+      .then(res => {
+        expect(res.text).toEqual(`<html>
+        <body><div>
+              <p>Name: Rick Sanchez</p>
+              <ul>
+                <li>Status: Alive</li>
+                <li>Species: Human</li>
+              </ul>
+            </div><div>
+              <p>Name: Morty Smith</p>
+              <ul>
+                <li>Status: Alive</li>
+                <li>Species: Human</li>
+              </ul>
+            </div></body>
+        </html>`);
       });
   });
 });
