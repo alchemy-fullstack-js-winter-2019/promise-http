@@ -7,7 +7,7 @@ describe('app', () => {
   it('has a testing route', () => {
     return request(app)
       .post('/note')
-      .send({ text: 'love note' })
+      .send({ text: 'testing 1234' })
       .then(res => {
         expect(res.status).toEqual(204);
       });
@@ -15,7 +15,7 @@ describe('app', () => {
 
   it('can take a query string', () => {
     return request(app)
-      .get('/you?name=jj')
+      .get('/you?name=')
       .then(res => {
         expect(res.body).toEqual({ text: 'howdy' });
       });

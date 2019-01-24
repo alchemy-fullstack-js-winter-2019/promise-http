@@ -11,12 +11,13 @@ describe('bodyParser', () => {
 
     const promise = bodyParser(req)
       .then(json => {
-        expect(json).toEqual({ testing: 1234 });
+        expect(json).toEqual({ text: 'This is a note' });
       });
-
-    req.emit('data', JSON.stringify({ testing: 1234 }));
+      
+    req.emit('data', JSON.stringify({ text: 'This is a note' }));
     req.emit('end');
 
     return promise;
   });
+
 });

@@ -1,4 +1,3 @@
-/*eslint-disable no-console*/
 const { getCharacter, getCharacters } = require('../../lib/service/rickAndMortyApi');
 
 describe('rick and morty service', () => {
