@@ -12,13 +12,11 @@ describe('rick and morty service', () => {
         });
       });
   });
-});
 
-describe('rick and morty service 2', () => {
   it('returns a list of characters', () => {
     return getCharacters()
       .then(characters => {
-        expect(characters).toBeDefined();
+        expect(characters).toHaveLength(28);
       });
   });
 });
