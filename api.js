@@ -13,5 +13,10 @@ request
       return request.get(url);
     }));
   })
-  .then(originRess => originRess.map(originRes => originRes.body))
-  .then(origins => console.log(origins));
+  .then(originRess => {
+    return originRess.map(originRess => originRess.body);
+  })
+  .then(origins => {
+    console.log(origins);
+  })
+  .catch(err => console.error(err));

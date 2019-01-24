@@ -4,7 +4,9 @@ const EventEmitter = require('events');
 describe('bodyParser', () => {
   it('parses a requests body', () => {
     const req = new EventEmitter();
-    req.getHeader = () => 'application/json';
+    req.headers = {
+      'content-type': 'application/json'
+    };
     req.method = 'POST';
 
     const promise = bodyParser(req)
