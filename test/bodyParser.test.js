@@ -19,5 +19,4 @@ describe('bodyParser', () => {
 
     return promise;
   });
-
 });
