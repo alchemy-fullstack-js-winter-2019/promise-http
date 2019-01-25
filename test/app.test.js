@@ -25,7 +25,7 @@ describe('app', () => {
   //     });
   // });
 
-  it('saves a note for a character', () => {
+  it.only('saves a note for a character', () => {
     return request(app)
       .post('/characters')
       .send({ characterId: 1, note: 'Great character' })
