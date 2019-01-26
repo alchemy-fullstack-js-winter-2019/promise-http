@@ -9,19 +9,19 @@ http.createServer((req, res) => {
     res.end('Tomorrow, tomorrow');
   } else if(url.pathname === '/birthday/tomorrow') {
     res.end('Tomorrow is your birthday');
+  } else if(url.pathname === '/') {
+    res.end(`
+    <html>
+      <body>
+        <h1>Connor's Site</h1>
+        <h3>I like to do things!</h3>
+        <p>Thanks for visiting!</p>
+      </body>
+    </html>
+    `);
   } else {
     res.statusCode = 404;
     res.end('Not found');
   }
-  // res.setHeader('Content-Type', 'text/html');
-  res.end(`
-  <html>
-    <body>
-      <h1>Connor's Site</h1>
-      <h3>I like to do things!</h3>
-      <p>Thanks for visiting!</p>
-    </body>
-  </html>
-  `);
 })
   .listen(7890);

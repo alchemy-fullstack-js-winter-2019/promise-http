@@ -21,7 +21,7 @@ describe('rick and morty api tests', () => {
       });
   });
 
-  it('gets notes for a character', () => {
+  it.only('gets notes for a character', () => {
     return request(app)
       .post('/characters')
       .send({ characterId: 1, note: 'Great character' })
