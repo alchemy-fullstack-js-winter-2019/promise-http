@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 
 // pending -> wating for the promise to finish
@@ -11,6 +12,7 @@ const fs = require('fs');
 const readPromise = src => new Promise((resolve, reject) => {
   // read our file the old callback way
   fs.readFile(src, { encoding: 'utf8' }, (err, data) => {
+
     console.log(data);
     // invoke the reject function with an error if unsuccessful
     if(err) return reject(err);
